@@ -1,0 +1,60 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- Include SheetJS (xlsx) library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+</head>
+<body>
+    <h2>Login</h2>
+    <form id="loginForm">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <button type="button" onclick="validateLogin()">Login</button>
+    </form>
+
+    <script>
+        function validateLogin() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Read Excel sheet
+            var fileInput = document.createElement("input");
+            fileInput.type = "file";
+            fileInput.accept = "C:\Users\Akash\Downloads\ExamResult.xlsx";
+            fileInput.onchange = function() {
+                var file = this.files[0];
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var data = new Uint8Array(e.target.result);
+                    var workbook = XLSX.read(data, { type: "array" });
+                    var sheetName = workbook.SheetNames[0];
+                    var worksheet = workbook.Sheets[sheetName];
+                    var excelData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+                    // Perform validation
+                    for (var i = 0; i < excelData.length; i++) {
+                        if (excelData[i][0] === username && excelData[i][1] === password) {
+                            alert("Login successful!");
+                            return;
+                        }
+                    }
+                    alert("Invalid username or password.");
+                };
+                reader.readAsArrayBuffer(file);
+            };
+            fileInput.click();
+        }
+    </script>
+</body>
+</html>

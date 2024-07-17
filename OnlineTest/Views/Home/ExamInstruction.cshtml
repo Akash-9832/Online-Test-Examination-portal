@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Instruction</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="https://localhost:7096/Home/UserDashboard">Home</a>
+        <div class="ml-auto">
+            <span class="navbar-text">Welcome Username</span>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1>Exam Instruction</h1>
+        <p>
+            This is a closed-book examination and students may not refer to any other source or person in taking this paper.
+            No electronic equipment, other than the examination computer, may be used. Dictionaries are not allowed with one exception.
+            Those whose first language is not English may use a standard translation dictionary to translate between that language and English
+            provided that neither language is the subject of this examination. Subject specific translation dictionaries are not permitted.
+            You are not permitted to take any paper or notes out of the examination room during or after the examination.
+            Any rough notes that you make on the paper provided will be collected by staff and destroyed.
+        </p>
+        <div class="form-check mt-4">
+            <input class="form-check-input" type="checkbox" id="readyCheckbox">
+            <label class="form-check-label" for="readyCheckbox">
+                I'm ready to start the Exam(s)
+            </label>
+        </div>
+        <button class="btn btn-success mt-3" id="startExamBtn" style="display: none;">Start Exam</button>
+    </div>
+
+    <!-- Bootstrap JS and jQuery (required for checkbox and button functionality) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Function to handle checkbox change event
+        document.getElementById("readyCheckbox").addEventListener("change", function () {
+            var startExamBtn = document.getElementById("startExamBtn");
+            // Show or hide "Start Exam" button based on checkbox state
+            startExamBtn.style.display = this.checked ? "block" : "none";
+        });
+    </script>
+</body>
+</html>

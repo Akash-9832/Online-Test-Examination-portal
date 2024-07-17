@@ -1,0 +1,326 @@
+﻿@*@{
+        ViewData["Title"] = "Home Page";
+    }
+
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core Test</a>.</p>
+        Add here
+    </div>
+
+
+
+<% Page Title="" Language="C#" MasterPageFile="~/admin.master" AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="admin_Index" %>*@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ Online Examination</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        .navbar-collapse {
+            background-color: lightgray;
+        }
+
+        .navbar {
+            width: 100%;
+        }
+
+        .nav-item {
+            margin-right: 30px;
+        }
+
+        .dropdown-menu {
+            min-width: 80px;
+        }
+
+        .navbar-nav {
+            margin-left: 50px;
+        }
+
+        .dropdown-toggle::after {
+            display: none;
+        }
+
+        .container-mid {
+            background-color: antiquewhite;
+            padding: 20px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        .Pid {
+            color: darkgreen;
+        }
+
+        .customer-care {
+            background-color: yellow;
+        }
+
+        .exercise {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .word-excel-exam {
+            border: 1px solid #ccc;
+        }
+
+        .exercise p {
+            margin-bottom: 0;
+        }
+
+        .test-duration {
+            width: 180px;
+        }
+
+        .take-test-btn {
+            width: 130px;
+            background-color: blueviolet;
+        }
+
+        .take-test-btn-disable {
+            color: white;
+            width: 130px;
+            background-color: dimgray;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">XYZ Office</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="soniOfficeDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <b>XYZ Office</b>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="soniOfficeDropdown">
+                            <li><a class="dropdown-item" href="https://www.sonitypingtutor.com/">Visit Website</a></li>
+                            <li><a class="dropdown-item" href="https://www.sonitypingtutor.com/blog/">Typing Tips</a></li>
+                            <li><a class="dropdown-item" onclick="closeWindow()" href="#">Exit</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="socialDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <b>Social</b>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="socialDropdown">
+                            <li><a class="dropdown-item" href="https://www.facebook.com/sonihinditypingtutor">Facebook</a></li>
+                            <li><a class="dropdown-item" href="https://www.twitter.com/sonitypingtutor">Twitter</a></li>
+                            <li><a class="dropdown-item" href="https://plus.google.com/100833554403480574807">Google Plus</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="activationDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <b>Activation</b>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="activationDropdown">
+                            <li><a class="dropdown-item" href="#">Activate Now</a></li>
+                            <li><a class="dropdown-item" href="https://www.sonitypingtutor.com/buy/">Buy Activation Key</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="helpDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <b>Help</b>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="helpDropdown">
+                            <li><a class="dropdown-item" href="#">User Guide</a></li>
+                            <li><a class="dropdown-item" href="#" id="openModalLinkCustomerCare">Customer Care</a></li>
+                            <li><a class="dropdown-item" href="#" id="openModalLinkAbout">About</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="modal" tabindex="-1" id="exampleModalCustomerCare">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Customer Care</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>We love to talk, just call us at the following number for any kind of support, enquiry, and information. So feel free to contact us anytime.</p>
+                    <p class="Pid">7424910327 (08:00 AM to 10:00 PM)</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" id="exampleModalAbout">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">XYZ Office</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Version: Release</p>
+                    <p>XYZ Office is developed and owned by ABC Software Services Pvt. Ltd, India.</p>
+                    <p>It is hosted at <a href="https://www.sonitypingtutor.com">https://www.sonitypingtutor.com</a></p>
+                    <p>XYZ Office and its logo are trademarks of ABC Software Services Pvt. Ltd, India.</p>
+                    <p>All rights are reserved and its content, resources, and user interface are subject to Copyright.</p>
+                    <p>Current Build Version is: 7.1.103.731</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container-mid mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <p>You are using trial version. English and Numeric Typing is absolutely free. Activate for Hindi typing. To get full version click on 'Activate' button, Click on 'Buy Activation Key' button to purchase activation key. Click 'How to Activate?' button for activation process.</p>
+                <p class="d-inline"><b>Product ID: <span class="Pid">LRIS - QQQK-LMMX-QYBI-FTRZ-5A48</span></b></p><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <p class="d-inline"><b>Version: <span class="Pid">7.1.103</span></b></p>
+            </div>
+            <div class="col-md-6">
+                <p class="customer-care col-md-8">Customer Care (8:00 AM to 10:00 PM): 7424910327</p>
+                <div class="d-flex">
+                    <button class="btn btn-primary me-3">How to Activate?</button>
+                    <a href="https://www.sonitypingtutor.com/buy" class="btn btn-primary me-3">Buy Activation Key</a>
+                    <a href="https://www.sonitypingtutor.com/buy" class="btn btn-primary">Activate Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-end mt-5">
+        <div class="row">
+            <div class="word-excel-exam col-md-6">
+                <h3>Word Efficiency</h3>
+                <div class="exercise">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <p>Word Exercise 1</p>
+                        </div>
+                        <div class="col-auto">
+                            <select class="form-select test-duration">
+                                <option selected>Test Duration</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="5">5</option>
+                                <option value="8">8</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                            </select>
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn btn-primary take-test-btn">Take Test</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="word-excel-exam col-md-6">
+                <h3>Excel Efficiency</h3>
+                <div class="exercise">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <p>Excel Exercise 1</p>
+                        </div>
+                        <div class="col-auto">
+                            <select class="form-select test-duration">
+                                <option selected>Test Duration</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="5">5</option>
+                                <option value="8">8</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                            </select>
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn btn-primary take-test-btn">Take Test</button>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="exercise">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <p>Excel Exercise 3</p>
+                        </div>
+                        <div class="col-auto">
+                            <select class="form-select test-duration">
+                                <option selected>Test Duration</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="5">5</option>
+                                <option value="8">8</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                            </select>
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn take-test-btn-disable">Not in Trial</button>
+                        </div>
+                    </div>
+                </div>-->
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Your content goes here -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function closeWindow() {
+            window.close();
+        }
+    </script>
+
+    <script>
+        document.getElementById('openModalLinkCustomerCare').addEventListener('click', function () {
+            var myModal = new bootstrap.Modal(document.getElementById('exampleModalCustomerCare'), {
+                keyboard: false
+            });
+            myModal.show();
+        });
+
+        document.getElementById('openModalLinkAbout').addEventListener('click', function () {
+            var myModalL = new bootstrap.Modal(document.getElementById('exampleModalAbout'), {
+                keyboard: false
+            });
+            myModalL.show();
+        });
+    </script>
+
+</body>
+</html>

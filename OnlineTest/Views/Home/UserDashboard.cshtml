@@ -1,0 +1,79 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom styles */
+        .sidebar {
+            background-color: #6a0dad; /* Purple background */
+            color: #fff; /* White text */
+            height: 90vh;
+            padding-top: 20px;
+        }
+
+        .navbar {
+            background-color: #f8f9fa; /* Light gray background */
+            height: 60px; /* Adjust height as needed */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Home</a>
+            <div class="ml-auto">
+                <span class="navbar-text">Welcome Username</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3 col-md-4 sidebar">
+                <div class="text-center mb-3">
+                    <!-- Company Logo -->
+                    <img src="company-logo.jpg" alt="Company Logo" class="img-fluid mb-3" style="width: 100px;">
+                    <!-- Separate Line -->
+                    <hr class="mb-3" style="border-top: 1px solid gray;">
+                    <!-- Exam Button -->
+                    <a href="https://localhost:7096/Home/ExamInstruction" class="btn btn-light btn-block">Exam</a>
+                </div>
+            </div>
+            <!-- User Details and Overview -->
+            <div class="col-lg-7 col-md-5">
+                <div class="text-center mt-3">
+                    <i class="fa-regular fa-user fa-2xl"></i>
+                    <p>Name: Rajdip Roy</p>
+                    <p>Roll No: 2440022</p>
+                    <p>DOB: January 6, 2002</p>
+                </div>
+                <!-- Overview Section -->
+                <div class="mt-5">
+                    <h2>Overview</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <!-- Add more content here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (optional, for certain components) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

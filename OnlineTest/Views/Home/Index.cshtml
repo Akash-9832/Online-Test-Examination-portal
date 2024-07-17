@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .login-container {
+            position: relative;
+            height: auto;
+            max-width: 450px;
+            margin-top: 25px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            border: 2px solid rgba(137, 166, 253, 0.825);
+            border-radius: 8px;
+            background-color: rgba(202, 241, 255, 0.316);
+            box-shadow: 0 2px 15px #8490ffd2;
+        }
+
+        body {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="login-container">
+                    <h2 class="text-center mb-4">Login</h2>
+                    <div class="mb-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="userRole" id="adminRadio" value="admin">
+                            <label class="form-check-label" for="adminRadio">Admin</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="userRole" id="candidateRadio" value="candidate">
+                            <label class="form-check-label" for="candidateRadio">Candidate</label>
+                        </div>
+                    </div>
+                    <form id="loginForm" method="post" class="mb-3">
+                        <div class="mb-3" style="display: none;" id="passwordContainer">
+                            <i class="fas fa-user"></i>
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username">
+                            <i class="fas fa-lock"></i>
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
+                        </div>
+                        <div class="mb-3" style="display: none;" id="dobContainer">
+                            <i class="fas fa-user"></i>
+                            <label for="username" class="form-label">Roll Number</label>
+                            <input type="text" class="form-control" id="userid" name="userid" placeholder="Enter your Roll No.">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <label for="dob" class="form-label">Date of Birth</label>
+                            <input type="date" class="form-control" id="dob" name="dob">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Handle form submission
+            $("#loginForm").submit(function (event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Get user ID and date of birth
+                var userId = $("#userid").val();
+                var dob = $("#dob").val();
+
+                // Make AJAX request to validate login
+                $.ajax({
+                    url: "C:\\Users\\Akash\\Downloads\\ExamResult.xlsx", // URL of the server-side action method for login validation
+                    method: "POST",
+                    data: { userId: userId, dob: dob },
+                    success: function (response) {
+                        // Show pop-up with login result
+                        alert(response);
+
+                        // Redirect to the next page if login is successful
+                        if (response.includes("successfully")) {
+                            window.location.href = "https://localhost:7096/Home/UserInteraction"; // Replace with the URL of your next page
+                        }
+                    },
+                    error: function () {
+                        // Show error message if AJAX request fails
+                        alert("Error occurred while processing login.");
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.querySelectorAll('input[name="userRole"]').forEach(function (radio) {
+            radio.addEventListener('change', function () {
+                var passwordContainer = document.getElementById('passwordContainer');
+                var dobContainer = document.getElementById('dobContainer');
+                if (radio.value === 'admin') {
+                    passwordContainer.style.display = 'block';
+                    dobContainer.style.display = 'none';
+                } else if (radio.value === 'candidate') {
+                    passwordContainer.style.display = 'none';
+                    dobContainer.style.display = 'block';
+                }
+            });
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission behavior
+            // Your login verification logic goes here
+
+            // For demonstration purpose, just redirect to main content page
+            //window.location.href = "https://localhost:7096/Home/UserInteraction";
+        });
+    </script>
+
+</body>
+</html>
